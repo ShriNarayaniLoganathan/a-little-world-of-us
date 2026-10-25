@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F5EBDD">
+  <meta name="description" content="A Little World of Us — Vicky ♡ Shrii">
+  <title>A Little World of Us — Vicky ♡ Shrii</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="grain"></div>
+  <div id="hearts-layer" aria-hidden="true"></div>
+
+  <button id="music-toggle" class="music-toggle" type="button">
+    ♫ Play music
+  </button>
+
+  <audio id="background-music" src="assets/audio/rathinamo.mp3" loop preload="none"></audio>
+
+  <main class="book">
+
+    <!-- OPENING ENVELOPE -->
+    <section id="envelope-screen" class="screen active center-screen">
+      <div class="eyebrow">A LITTLE WORLD OF US · EST. 26.10.2024</div>
+
+      <div class="envelope-wrap">
+        <button id="open-envelope" class="envelope" type="button" aria-label="Open our love letter">
+          <span class="envelope-flap"></span>
+          <span class="envelope-seal">V ♡ S</span>
+          <span class="envelope-note">
+            To my favourite human,<br>
+            from the girl who will fight with you<br>
+            and still run back to hug you. ♡
+          </span>
+        </button>
+      </div>
+
+      <p class="handwritten">A tiny love letter, made only for you.</p>
+      <p class="muted">Tap the envelope to begin</p>
+    </section>
+
+    <!-- WELCOME PAGE -->
+    <section id="welcome-screen" class="screen welcome-photo-page">
+      <div class="welcome-heading">
+        <p class="eyebrow">26 OCTOBER 2024 — FOREVER IN PROGRESS</p>
+        <h1>Happy 2nd Love Anniversary</h1>
+        <p class="script-title">My Kunjumaniiiii ♡</p>
+      </div>
+
+      <div class="anniversary-photo-container">
+        <img
+          id="anniversary-photo"
+          class="anniversary-main-photo"
+          src="assets/photos/shrii-vicky-1.png"
+          alt="Shrii and Vicky together"
+          fetchpriority="high"
+        >
+        <p class="photo-fallback hidden" id="anniversary-photo-fallback">
+          Photo not found — check assets/photos/shrii-vicky-1.png
+        </p>
+      </div>
+
+      <p class="anniversary-photo-caption">my favourite human, always ♡</p>
+
+      <p class="welcome-description">
+        Two years of little moments, silly fights, big feelings,
+        and choosing each other again. This is our little world.
+      </p>
+
+      <div class="button-row">
+        <button class="primary-btn" data-go="memories-screen" type="button">
+          Our memories ↗
+        </button>
+        <button class="paper-btn" data-go="letters-screen" type="button">
+          Open my letters 💌
+        </button>
+      </div>
+
+      <nav class="quick-nav">
+        <button data-go="reasons-screen" type="button">100 reasons ♡</button>
+        <button data-go="game-screen" type="button">Our little game ♡</button>
+        <button data-go="voice-screen" type="button">Voice note for you 🎙️</button>
+        <button data-go="quiz-screen" type="button">How well do you know me? 🥹</button>
+        <button data-go="treasure-screen" type="button">Find the hidden treasure 🔐</button>
+      </nav>
+
+      <p class="handwritten">730 days, still you. Always you. 🤎</p>
+    </section>
+
+    <!-- MEMORIES -->
+    <section id="memories-screen" class="screen">
+      <div class="eyebrow">PRESSED FLOWERS & LITTLE MOMENTS</div>
+      <h2>Our memory scrapbook</h2>
+      <p class="section-lead">Little moments that became my favourite chapters.</p>
+
+      <div class="memory-grid">
+        <figure class="polaroid tilt-left">
+          <img src="assets/photos/shrii-vicky-1.png" alt="Our memory one">
+          <figcaption>my favourite person ♡</figcaption>
+        </figure>
+
+        <figure class="polaroid tilt-right">
+          <img src="assets/photos/shrii-vicky-2.jpg" alt="Our memory two">
+          <figcaption>one for the scrapbook</figcaption>
+        </figure>
+
+        <figure class="polaroid tilt-left">
+          <img src="assets/photos/shrii-vicky-3.jpg" alt="Our memory three">
+          <figcaption>little moments, big feelings</figcaption>
+        </figure>
+
+        <figure class="polaroid tilt-right">
+          <img src="assets/photos/shrii-vicky-4.jpg" alt="Our memory four">
+          <figcaption>my person, my place</figcaption>
+        </figure>
+
+        <figure class="polaroid tilt-left">
+          <img src="assets/photos/shrii-vicky-5.jpg" alt="Our memory five">
+          <figcaption>more memories loading…</figcaption>
+        </figure>
+      </div>
+
+      <blockquote>
+        “Annul Melae” — the little song that takes me back to our beginning. ♡
+      </blockquote>
+
+      <div class="button-row">
+        <button class="paper-btn" data-go="welcome-screen">← Back</button>
+        <button class="primary-btn" data-go="letters-screen">Read our letters →</button>
+      </div>
+    </section>
+
+    <!-- OPEN WHEN LETTERS -->
+    <section id="letters-screen" class="screen">
+      <div class="eyebrow">OPEN WHEN YOUR HEART NEEDS ME</div>
+      <h2>Letters for my boy</h2>
+
+      <p class="section-lead">
+        Every time you open one, you’ll get a fresh note.
+        Messages repeat only after that letter’s notes have all been shown.
+      </p>
+
+      <div id="letters-list" class="letters-list"></div>
+
+      <article id="letter-content" class="letter-paper hidden">
+        <div id="letter-kicker" class="eyebrow">A FRESH NOTE FROM SHRII 💌</div>
+        <h3 id="letter-title">A little letter</h3>
+        <p id="letter-body" class="letter-body"></p>
+        <p id="letter-progress" class="muted"></p>
+
+        <div class="signature">Always yours,<br>your Shrii ♡</div>
+
+        <button id="close-letter" class="paper-btn" type="button">
+          Fold this letter ✉
+        </button>
+      </article>
+
+      <div class="button-row">
+        <button class="paper-btn" data-go="welcome-screen">← Back</button>
+        <button class="primary-btn" data-go="reasons-screen">100 reasons →</button>
+      </div>
+    </section>
+
+    <!-- 100 REASONS -->
+    <section id="reasons-screen" class="screen">
+      <div class="eyebrow">A HUNDRED LITTLE TRUTHS</div>
+      <h2>100 reasons I love you</h2>
+
+      <p class="section-lead">
+        Tap the note to turn it over. Each reason comes with a little handful of love.
+      </p>
+
+      <div id="reason-card" class="reason-card">
+        <div class="reason-front">
+          <div id="reason-counter" class="eyebrow">LOVE NOTE 01 / 100</div>
+          <div class="pressed-flower">✿</div>
+          <p id="love-reason"></p>
+          <span class="tap-hint">tap to turn ♡</span>
+        </div>
+
+        <div class="reason-back">
+          <span id="reason-back-emojis">🥹🩷🫶🏻</span>
+          <p>And still, this is only one little reason.</p>
+          <span class="tap-hint">you are loved ♡</span>
+        </div>
+      </div>
+
+      <div class="button-row centered">
+        <button id="next-reason" class="primary-btn" type="button">
+          Next love note →
+        </button>
+      </div>
+
+      <div class="button-row">
+        <button class="paper-btn" data-go="letters-screen">← Letters</button>
+        <button class="primary-btn" data-go="game-screen">Play our game →</button>
+      </div>
+    </section>
+
+    <!-- THREE-LEVEL GAME -->
+    <section id="game-screen" class="screen">
+      <div class="eyebrow">A LITTLE CHAOS, A LOT OF LOVE</div>
+      <h2>Sanda Pottalum Unnodathaan</h2>
+      <p class="script-title">Vicky ♡ Shrii</p>
+
+      <div class="game-paper">
+        <div id="level-label" class="eyebrow">LEVEL 1 OF 3</div>
+        <h3 id="game-title">Level 1 — Come Find Me 🥹</h3>
+        <p id="game-instructions">Catch 3 hearts to start making up!</p>
+        <div class="game-score" id="game-score">Hearts: 0 / 3</div>
+
+        <div class="game-arena level-1" id="game-arena">
+          <div id="boy-character" class="character boy-character">
+            <img id="boy-sprite" class="character-sprite" src="assets/images/vicky-running.png" alt="Vicky running">
+          </div>
+
+          <div id="girl-character" class="character girl-character">
+            <img id="girl-sprite" class="character-sprite" src="assets/images/shrii-running.png" alt="Shrii running">
+          </div>
+
+          <img id="game-hug-sprite" class="game-hug-sprite hidden" src="assets/images/couple-hug.png" alt="Vicky and Shrii hugging">
+
+          <div id="game-items"></div>
+          <div class="arena-floor"></div>
+        </div>
+
+        <div class="button-row centered">
+          <button id="start-level" class="primary-btn" type="button">Start Level 1 💗</button>
+          <button id="game-action" class="paper-btn hidden" type="button">Next Challenge ✨</button>
+        </div>
+      </div>
+
+      <p class="muted">Catch every heart to finish all three levels and run back for a hug.</p>
+
+      <div class="button-row">
+        <button class="paper-btn" data-go="reasons-screen">← Love notes</button>
+        <button class="primary-btn" data-go="welcome-screen">Our little world</button>
+        <button class="paper-btn" data-go="voice-screen">Voice note 🎙️</button>
+        <button class="paper-btn" data-go="quiz-screen">Love quiz 🥹</button>
+        <button class="paper-btn" data-go="treasure-screen">Treasure hunt 🔐</button>
+      </div>
+    </section>
+
+    <!-- NEW FEATURE 3: VOICE NOTE ROOM -->
+    <section id="voice-screen" class="screen">
+      <div class="eyebrow">A LITTLE PIECE OF MY VOICE</div>
+      <h2>Leave me a voice note 🎙️</h2>
+
+      <p class="section-lead">
+        Record a message right here in the browser. You can listen to it,
+        record again, or download it to keep forever. Your browser may ask
+        permission to use the microphone.
+      </p>
+
+      <div class="feature-paper voice-paper">
+        <div class="voice-icon">🎧</div>
+
+        <p id="voice-status" class="handwritten">Ready when you are, my boy ♡</p>
+
+        <div class="button-row centered">
+          <button id="record-voice" class="primary-btn" type="button">
+            Start recording 🔴
+          </button>
+          <button id="stop-voice" class="paper-btn" type="button" disabled>
+            Stop recording ⏹
+          </button>
+        </div>
+
+        <audio id="voice-playback" class="voice-playback hidden" controls></audio>
+
+        <div class="button-row centered">
+          <button id="record-again" class="paper-btn hidden" type="button">
+            Record again ↻
+          </button>
+          <a id="download-voice" class="paper-btn hidden" download="a-little-voice-note.webm">
+            Download my voice note ↓
+          </a>
+        </div>
+
+        <p class="message-hint">
+          Recording stays in this browser until you download it.
+          It is not automatically sent to anyone.
+        </p>
+      </div>
+
+      <div class="button-row">
+        <button class="paper-btn" data-go="welcome-screen">← Our little world</button>
+        <button class="primary-btn" data-go="quiz-screen">Try the love quiz →</button>
+      </div>
+    </section>
+
+    <!-- NEW FEATURE 4: LOVE QUIZ -->
+    <section id="quiz-screen" class="screen">
+      <div class="eyebrow">LET'S SEE HOW WELL YOU KNOW YOUR GIRL</div>
+      <h2>How well do you know me? 🥹</h2>
+
+      <p class="section-lead">
+        Choose your answers, Kunjumaniiiii. No cheating da!
+        Your score will reveal your cute little result. 🤎
+      </p>
+
+      <div class="feature-paper">
+        <div class="quiz-progress" id="quiz-progress">Question 1 of 8</div>
+        <h3 id="quiz-question">Ready?</h3>
+
+        <div id="quiz-options" class="quiz-options"></div>
+
+        <p id="quiz-feedback" class="quiz-feedback" aria-live="polite"></p>
+
+        <div class="button-row centered">
+          <button id="quiz-next" class="primary-btn" type="button" disabled>
+            Next question →
+          </button>
+          <button id="quiz-restart" class="paper-btn hidden" type="button">
+            Play again ↻
+          </button>
+        </div>
+
+        <div id="quiz-result" class="quiz-result hidden" aria-live="polite"></div>
+      </div>
+
+      <div class="button-row">
+        <button class="paper-btn" data-go="voice-screen">← Voice note</button>
+        <button class="primary-btn" data-go="treasure-screen">Find the treasure →</button>
+      </div>
+    </section>
+
+    <!-- NEW FEATURE 5: HIDDEN TREASURE HUNT -->
+    <section id="treasure-screen" class="screen">
+      <div class="eyebrow">A SECRET ONLY MY BOY CAN UNLOCK</div>
+      <h2>Hidden treasure hunt 🔐</h2>
+
+      <p class="section-lead">
+        Find the little hearts hidden below. Each one reveals a clue
+        from our story. Collect all three, then unlock your surprise.
+      </p>
+
+      <div class="treasure-paper feature-paper">
+        <div class="treasure-heart-row" id="treasure-hearts">
+          <button class="treasure-heart" data-clue="0" type="button" aria-label="Find hidden heart 1">♡</button>
+          <button class="treasure-heart" data-clue="1" type="button" aria-label="Find hidden heart 2">♡</button>
+          <button class="treasure-heart" data-clue="2" type="button" aria-label="Find hidden heart 3">♡</button>
+        </div>
+
+        <p id="treasure-clue" class="handwritten">
+          Psst… one of these hearts is waiting for you. Tap to find it. ♡
+        </p>
+
+        <p id="treasure-progress" class="muted">Clues found: 0 / 3</p>
+
+        <div id="treasure-lock" class="treasure-lock hidden">
+          <label for="treasure-password">Enter our secret date (DDMMYYYY)</label>
+          <input
+            id="treasure-password"
+            type="password"
+            inputmode="numeric"
+            maxlength="8"
+            placeholder="8-digit secret code"
+            autocomplete="off"
+          >
+
+          <button id="unlock-treasure" class="primary-btn" type="button">
+            Unlock my surprise 🔓
+          </button>
+
+          <p id="treasure-feedback" class="quiz-feedback" aria-live="polite"></p>
+        </div>
+
+        <div id="treasure-reward" class="treasure-reward hidden">
+          <div class="treasure-reward-icon">💌</div>
+          <h3>YOU FOUND MY HEART!</h3>
+
+          <p>
+            Our story began on 26 October 2024, but choosing you is
+            something I want to keep doing every day. No treasure could
+            ever be better than us, my boy. I love you more than anything.
+            🥹❤️‍🔥🫂
+          </p>
+
+          <p class="handwritten">
+            Your forever treasure is me… and my heart is yours. ♡
+          </p>
+
+          <button id="treasure-final-button" class="primary-btn" type="button">
+            One last hug →
+          </button>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button class="paper-btn" data-go="quiz-screen">← Love quiz</button>
+        <button class="primary-btn" data-go="welcome-screen">Back to our little world</button>
+      </div>
+    </section>
+
+    <!-- FINAL ANNIVERSARY SCREEN -->
+    <section id="final-screen" class="screen center-screen anniversary-screen">
+      <img class="anniversary-fullscreen-bg" src="assets/images/anniversary-fullscreen.jpg" alt="Happy Anniversary picture">
+
+      <div class="anniversary-shade"></div>
+      <div id="fireworks" aria-hidden="true"></div>
+
+      <div class="anniversary-content">
+        <div class="eyebrow">AND AFTER EVERY LITTLE FIGHT…</div>
+        <h2>Happy 2nd Anniversary</h2>
+        <p class="anniversary-names">My Kunjumaniiiii ♡</p>
+
+        <div id="reunion-stage" class="reunion-stage" aria-label="Vicky and Shrii run from opposite sides and hug">
+          <img id="final-vicky-running" class="reunion-runner reunion-vicky" src="assets/images/vicky-running.png" alt="Vicky running toward Shrii">
+          <img id="final-shrii-running" class="reunion-runner reunion-shrii" src="assets/images/shrii-running.png" alt="Shrii running toward Vicky">
+          <img id="final-hug-image" class="reunion-hug hidden" src="assets/images/couple-hug.png" alt="Vicky and Shrii hugging">
+        </div>
+
+        <p class="final-message hidden" id="final-love-message">
+          Paathiya, intha rendu bommai maari thaan nammalum sanda poduvom…
+          kadaisila onnu serurom. I love you more than anything my boy
+          🥹❤️‍🔥💋🫂
+        </p>
+
+        <button id="fireworks-button" class="primary-btn" type="button">
+          One more celebration 🎆
+        </button>
+
+        <p class="script-title">730 days, still you. ♡</p>
+
+        <!-- TEXT ME BOX -->
+        <section class="final-contact" id="final-contact">
+          <p class="eyebrow">ONE LAST LITTLE THING 💌</p>
+          <h2>Anything to tell me?</h2>
+          <p class="handwritten">Sollu da, my boyyy. I'm listening. ♡</p>
+
+          <label for="his-message">Un manasula irukkuradha sollu...</label>
+
+          <textarea
+            id="his-message"
+            rows="5"
+            maxlength="3000"
+            placeholder="Shrii, I wanted to tell you..."
+          ></textarea>
+
+          <p class="message-hint">No filters, no fear. Just you and me. 🤎</p>
+
+          <button id="send-whatsapp" class="contact-link whatsapp-link" type="button">
+            Send me on WhatsApp 💚
+          </button>
+
+          <button id="open-instagram" class="contact-link instagram-link" type="button">
+            Open our Instagram chat 💌
+          </button>
+
+          <p class="message-hint">
+            WhatsApp-la Send press pannanum.
+            Instagram-la message-ai paste panni send pannalaam. ♡
+          </p>
+        </section>
+
+        <button class="paper-btn" data-go="welcome-screen" type="button">
+          Back to our little world
+        </button>
+      </div>
+    </section>
+
+    <footer>
+      Made with all my love · Shrii ♡ Vicky · 26.10.2026
+    </footer>
+
+  </main>
+</body>
+</html>
